@@ -11,6 +11,8 @@ import { FocusCards } from "@/components/ui/focus-cards";
 
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 
+import { PlaceholdersAndVanishInput } from "@/components/ui/placeholders-and-vanish-input";
+
 export default function Home() {
 
   const words = ["Database", "Tracker", "Finder"];
@@ -40,6 +42,20 @@ export default function Home() {
     
   ];
 
+  const placeholders = [
+    "Search Any Anime!",
+    "Who is Your Voice Actor?",
+    "Search by Genre? We Got You!"
+  ];
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+  };
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log("submitted");
+  };
+
 
   return (
     <>
@@ -55,17 +71,48 @@ export default function Home() {
               <Cover>Anime Sphere</Cover>
             </div>
             <div className="relative mx-auto inline-block w-max [filter:drop-shadow(0px_1px_3px_rgba(27,_37,_80,_0.14))]">
-              <div className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 py-4">
+              <div className="mt-4 relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 py-4">
                 <span>Your Anime </span>
                 <Highlight className="text-black dark:text-white">
                   <FlipWords words={words} />
                 </Highlight>
+                
               </div>
+              
+            </div>
+            <div className="mt-8 relative flex justify-center items-center">
+
+              {/* Gradients */}
+              <div className="absolute left-1/2 top-0 transform -translate-x-1/2 bg-gradient-to-r from-transparent via-purple-500 to-transparent h-[2px] w-3/4 blur-sm" />
+              <div className="absolute left-1/2 top-0 transform -translate-x-1/2 bg-gradient-to-r from-transparent via-purple-500 to-transparent h-px w-3/4" />
+              <div className="absolute left-1/2 top-0 transform -translate-x-1/2 bg-gradient-to-r from-transparent via-violet-500 to-transparent h-[5px] w-1/4 blur-sm" />
+              <div className="absolute left-1/2 top-0 transform -translate-x-1/2 bg-gradient-to-r from-transparent via-violet-500 to-transparent h-px w-1/4" />
+
+
+      
+              {/* Core component */}
+              {/* <SparklesCore
+                background="transparent"
+                minSize={0.4}
+                maxSize={1}
+                particleDensity={1200}
+                className="w-full h-full"
+                particleColor="#00000"
+              /> */}
+      
+        
             </div>
           </h2>
         </div>
-
-        
+        {/* Placeholder */}
+        <div className="h-[10rem] flex flex-col justify-center  items-center px-4">
+          
+          <PlaceholdersAndVanishInput
+            placeholders={placeholders}
+            onChange={handleChange}
+            onSubmit={onSubmit}
+          />
+        </div>
   
         {/* Upcoming Anime Section */}
         <div className="mt-12 grid gap-4 p-4">
@@ -78,6 +125,15 @@ export default function Home() {
             <FocusCards cards={cards} />
           </div>
         </div>
+
+        
+        {/* Test */}
+
+        
+      
+      
+    
+        
       </BackgroundBeamsWithCollision>
     </>
   );
