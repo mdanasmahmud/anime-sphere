@@ -43,15 +43,17 @@ export function FocusCards({
 
   return (
     (<div
-      className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto md:px-8 w-full">
+      className="grid grid-cols-1 md:grid-cols-5 gap-10 w-full px-4 md:px-16 mx-auto">
       {cards.map((card, index) => (
         <Card
           key={card.title}
           card={card}
           index={index}
           hovered={hovered}
-          setHovered={setHovered} />
+          setHovered={setHovered}
+        />
       ))}
-    </div>)
+    </div>
+    )
   );
 }

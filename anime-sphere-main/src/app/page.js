@@ -1,7 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { LampContainer } from "../components/ui/lamp";
 import { Cover } from "@/components/ui/cover";
 import { FlipWords } from "@/components/ui/flip-words";
 import {Highlight } from "@/components/ui/hero-highlight";
@@ -9,50 +7,81 @@ import {Highlight } from "@/components/ui/hero-highlight";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "@/components/ui/navbar-menu";
 import { cn } from "@/lib/utils";
 
+import { FocusCards } from "@/components/ui/focus-cards";
+
+import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 
 export default function Home() {
 
   const words = ["Database", "Tracker", "Finder"];
 
+  const cards = [
+    {
+      title: "Forest",
+      src: "https://images.unsplash.com/photo-1518710843675-2540dd79065c?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      title: "Valley of life",
+      src: "https://images.unsplash.com/photo-1600271772470-bd22a42787b3?q=80&w=3072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      title: "Sala behta hi jayega",
+      src: "https://images.unsplash.com/photo-1505142468610-359e7d316be0?q=80&w=3070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      title: "Camping is for pros",
+      src: "https://images.unsplash.com/photo-1486915309851-b0cc1f8a0084?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      title: "The road not taken",
+      src: "https://images.unsplash.com/photo-1507041957456-9c397ce39c97?q=80&w=3456&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+
+    
+  ];
+
 
   return (
     <>
-    <div className="relative w-full flex items-center justify-center">
-      <Navbar className="top-2" />
-    </div>
-    
-    
-<LampContainer>
-  <div className="grid gap-4">
-    <motion.h1
-      initial={{ opacity: 0.5, y: 100 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{
-        delay: 0.3,
-        duration: 0.8,
-        ease: "easeInOut",
-      }}
-      className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
-    >
-      <Cover className="pb-3">Anime Sphere</Cover>
-      <div>
-        <span className="mr-5">
-          <br /> Your Anime
-        </span>
-        <Highlight className="text-black dark:text-white">
-          <FlipWords words={words} />
-        </Highlight>
+      <div className="relative w-full flex items-center justify-center">
+        <Navbar className="top-2" />
       </div>
-    </motion.h1>
-    
-    
-  </div>
-</LampContainer>
+  
+      <BackgroundBeamsWithCollision>
+        {/* Cover and main heading */}
+        <div className="text-center py-8">
+          <h2 className="text-2xl relative z-20 md:text-4xl lg:text-7xl font-bold text-black dark:text-white font-sans tracking-tight">
+            <div className="pb-3 mt-48">
+              <Cover>Anime Sphere</Cover>
+            </div>
+            <div className="relative mx-auto inline-block w-max [filter:drop-shadow(0px_1px_3px_rgba(27,_37,_80,_0.14))]">
+              <div className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 py-4">
+                <span>Your Anime </span>
+                <Highlight className="text-black dark:text-white">
+                  <FlipWords words={words} />
+                </Highlight>
+              </div>
+            </div>
+          </h2>
+        </div>
 
-</>
-
-
+        
+  
+        {/* Upcoming Anime Section */}
+        <div className="mt-12 grid gap-4 p-4">
+          <div className="flex justify-center">
+            <h2 className="mb-5 max-w-7xl text-xl md:text-5xl font-bold text-black font-sans">
+              Upcoming Anime
+            </h2>
+          </div>
+          <div className="flex justify-center">
+            <FocusCards cards={cards} />
+          </div>
+        </div>
+      </BackgroundBeamsWithCollision>
+    </>
   );
+  
 }
 
 
