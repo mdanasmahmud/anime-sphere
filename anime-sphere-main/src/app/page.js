@@ -90,15 +90,7 @@ export default function Home() {
 
 
       
-              {/* Core component */}
-              {/* <SparklesCore
-                background="transparent"
-                minSize={0.4}
-                maxSize={1}
-                particleDensity={1200}
-                className="w-full h-full"
-                particleColor="#00000"
-              /> */}
+              
       
         
             </div>
