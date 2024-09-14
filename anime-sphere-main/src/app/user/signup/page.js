@@ -9,11 +9,20 @@ import {
   IconBrandOnlyfans,
 } from "@tabler/icons-react";
 
+import { NavbarBasic } from "@/app/page";
+
 export default function SignUpPage() {
-    
-    return(
-        <SignUpForm/>
-    )
+
+    return (
+        <div className="flex flex-col min-h-screen">
+          <div className="flex-shrink-0">
+            <NavbarBasic />
+          </div>
+          <div className="flex-grow grid place-items-center mt-16">
+            <SignUpForm />
+          </div>
+        </div>
+      );
 }
 
 export function SignUpForm() {

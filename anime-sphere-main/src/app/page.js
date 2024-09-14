@@ -59,9 +59,8 @@ export default function Home() {
 
   return (
     <>
-      <div className="relative w-full flex items-center justify-center">
-        <Navbar className="top-2" />
-      </div>
+
+      <NavbarBasic/>
   
       <BackgroundBeamsWithCollision>
         {/* Cover and main heading */}
@@ -187,4 +186,16 @@ function Navbar({ className }) {
       </Menu>
     </div>
   );
+}
+
+export function Jumbotron(){
+
+}
+
+export function NavbarBasic(){
+  return (
+    <div className="relative w-full flex items-center justify-center">
+        <Navbar className="top-2" />
+    </div>
+  )
 }
