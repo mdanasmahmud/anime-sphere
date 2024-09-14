@@ -1,5 +1,8 @@
+// Add all the navbar and everything into the layout
+
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 import { Cover } from "@/components/ui/cover";
 import { FlipWords } from "@/components/ui/flip-words";
 import {Highlight } from "@/components/ui/hero-highlight";
@@ -139,7 +142,8 @@ function Navbar({ className }) {
       className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
     >
       <Menu setActive={setActive}>
-        <MenuItem setActive={setActive} active={active} item="Services">
+        <Link href='/'>Home</Link>
+        <MenuItem setActive={setActive} active={active} item="Anime">
           <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink href="/web-dev">Web Development</HoveredLink>
             <HoveredLink href="/interface-design">Interface Design</HoveredLink>
@@ -147,7 +151,7 @@ function Navbar({ className }) {
             <HoveredLink href="/branding">Branding</HoveredLink>
           </div>
         </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Products">
+        <MenuItem setActive={setActive} active={active} item="Recommend">
           <div className="  text-sm grid grid-cols-2 gap-10 p-4">
             <ProductItem
               title="Algochurn"
@@ -175,7 +179,7 @@ function Navbar({ className }) {
             />
           </div>
         </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Pricing">
+        <MenuItem setActive={setActive} active={active} item="Watch">
           <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink href="/hobby">Hobby</HoveredLink>
             <HoveredLink href="/individual">Individual</HoveredLink>
@@ -183,6 +187,9 @@ function Navbar({ className }) {
             <HoveredLink href="/enterprise">Enterprise</HoveredLink>
           </div>
         </MenuItem>
+        <Link href='/user/signup/' className="px-0.5 py-0.5 rounded-md border border-black bg-white text-black text-sm hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition duration-200">
+          Sign Up
+        </Link>
       </Menu>
     </div>
   );
